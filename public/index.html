@@ -6,170 +6,60 @@
   <title>Gerador de Abordagem — SDR de Sucesso</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #F5EFE4;
-      color: #2a2a2a;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-    }
-
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #F5EFE4; color: #2a2a2a; min-height: 100vh; padding: 2rem 1rem; }
     .container { max-width: 680px; margin: 0 auto; }
-
     .header { margin-bottom: 2rem; }
-    .header h1 {
-      font-size: 22px; font-weight: 700;
-      color: #2AABB0;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
+    .header h1 { font-size: 22px; font-weight: 700; color: #2AABB0; margin-bottom: 4px; letter-spacing: -0.02em; }
     .header p { font-size: 14px; color: #666; }
-
-    .catalog-preview {
-      background: #2AABB0;
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-    .catalog-preview-title {
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.7); margin-bottom: 10px;
-    }
+    .catalog-preview { background: #2AABB0; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    .catalog-preview-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
     .catalog-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .ctag {
-      font-size: 12px; padding: 3px 10px;
-      border-radius: 99px; font-weight: 500;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #e8e0d5;
-    }
-
-    .section-title {
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: #2AABB0;
-      border-top: 1px solid #f0e8de;
-      padding-top: 1.25rem; margin-top: 1.25rem; margin-bottom: 1rem;
-    }
-    .section-title:first-child { border-top: none; padding-top: 0; margin-top: 0; }
-
-    .field { margin-bottom: 1rem; }
-    .field:last-child { margin-bottom: 0; }
-
-    label { display: block; font-size: 13px; color: #555; margin-bottom: 6px; }
-
-    select, textarea, input[type="text"], input[type="email"] {
-      width: 100%; padding: 10px 12px; font-size: 14px;
-      background: #faf7f3; color: #2a2a2a;
-      border: 1px solid #ddd6cc;
-      border-radius: 8px; outline: none; font-family: inherit;
-      transition: border-color 0.15s;
-    }
-    select:focus, textarea:focus, input:focus {
-      border-color: #2AABB0;
-      background: #fff;
-    }
-    textarea { resize: vertical; line-height: 1.6; }
-
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 480px) { .row { grid-template-columns: 1fr; } }
-
-    .btn-gerar {
-      width: 100%; margin-top: 0.5rem; padding: 13px;
-      background: #2AABB0; color: #fff;
-      border: none; border-radius: 8px;
-      font-size: 14px; font-weight: 700; cursor: pointer;
-      font-family: inherit; transition: opacity 0.15s;
-      letter-spacing: 0.01em;
-    }
-    .btn-gerar:hover { opacity: 0.88; }
-    .btn-gerar:disabled { opacity: 0.4; cursor: default; }
-
-    .acesso-box {
-      background: #fff; border: 1px solid #e8e0d5;
-      border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem;
-    }
+    .ctag { font-size: 12px; padding: 3px 10px; border-radius: 99px; font-weight: 500; background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .card { background: #fff; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid #e8e0d5; }
+    .acesso-box { background: #fff; border: 1px solid #e8e0d5; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
     .acesso-box h2 { font-size: 16px; font-weight: 700; color: #2AABB0; margin-bottom: 6px; }
     .acesso-box p { font-size: 13px; color: #666; margin-bottom: 1rem; }
-
-    .result-card {
-      background: #fff; border: 1px solid #e8e0d5;
-      border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;
-    }
-    .result-label {
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: #2AABB0; margin-bottom: 8px;
-    }
+    .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #2AABB0; border-top: 1px solid #f0e8de; padding-top: 1.25rem; margin-top: 1.25rem; margin-bottom: 1rem; }
+    .section-title:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .field { margin-bottom: 1rem; }
+    .field:last-child { margin-bottom: 0; }
+    label { display: block; font-size: 13px; color: #555; margin-bottom: 6px; }
+    .field-note { font-size: 11px; color: #aaa; margin-top: 5px; }
+    select, textarea, input[type="text"], input[type="email"], input[type="url"] { width: 100%; padding: 10px 12px; font-size: 14px; background: #faf7f3; color: #2a2a2a; border: 1px solid #ddd6cc; border-radius: 8px; outline: none; font-family: inherit; transition: border-color 0.15s; }
+    select:focus, textarea:focus, input:focus { border-color: #2AABB0; background: #fff; }
+    textarea { resize: vertical; line-height: 1.6; }
+    .source-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+    .tab-btn { padding: 6px 16px; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; font-family: inherit; border: 1px solid #ddd6cc; background: transparent; color: #888; transition: all 0.15s; }
+    .tab-btn.active { background: #2AABB0; color: #fff; border-color: #2AABB0; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .row { grid-template-columns: 1fr; } }
+    .btn-gerar { width: 100%; margin-top: 0.5rem; padding: 13px; background: #2AABB0; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
+    .btn-gerar:hover { opacity: 0.88; }
+    .btn-gerar:disabled { opacity: 0.4; cursor: default; }
+    .result-card { background: #fff; border: 1px solid #e8e0d5; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; }
+    .result-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #2AABB0; margin-bottom: 8px; }
     .result-section { margin-bottom: 1.25rem; }
     .result-section:last-child { margin-bottom: 0; }
-
     .divider { border: none; border-top: 1px solid #f0e8de; margin: 1.25rem 0; }
-
-    .product-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #2AABB0; color: #fff;
-      border-radius: 99px;
-      padding: 6px 14px; font-size: 13px; font-weight: 700; margin-bottom: 10px;
-    }
-
+    .product-badge { display: inline-flex; align-items: center; gap: 6px; background: #2AABB0; color: #fff; border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
     .fit-score { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
     .fit-label { font-size: 12px; color: #999; }
     .fit-bar-wrap { flex: 1; height: 6px; background: #f0e8de; border-radius: 99px; overflow: hidden; }
     .fit-bar { height: 100%; border-radius: 99px; background: #2AABB0; }
     .fit-num { font-size: 12px; font-weight: 700; color: #2AABB0; min-width: 32px; }
-
     .justif { font-size: 13px; color: #555; line-height: 1.6; }
-
     .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: 12px; padding: 3px 10px; border-radius: 99px; font-weight: 500; }
     .tag-teal { background: #d4f0f1; color: #1a7f83; }
     .tag-lilac { background: #e8e4f8; color: #6b5fb5; }
-
-    .msg-box {
-      background: #faf7f3; border: 1px solid #e8e0d5;
-      border-radius: 8px; padding: 1rem;
-      font-size: 14px; line-height: 1.7;
-      color: #2a2a2a; white-space: pre-wrap;
-    }
-
-    .copy-btn {
-      margin-top: 8px; padding: 6px 14px;
-      background: transparent; border: 1px solid #2AABB0;
-      border-radius: 99px; font-size: 12px; cursor: pointer;
-      color: #2AABB0; font-family: inherit; font-weight: 600;
-      transition: background 0.15s;
-    }
+    .msg-box { background: #faf7f3; border: 1px solid #e8e0d5; border-radius: 8px; padding: 1rem; font-size: 14px; line-height: 1.7; color: #2a2a2a; white-space: pre-wrap; }
+    .copy-btn { margin-top: 8px; padding: 6px 14px; background: transparent; border: 1px solid #2AABB0; border-radius: 99px; font-size: 12px; cursor: pointer; color: #2AABB0; font-family: inherit; font-weight: 600; }
     .copy-btn:hover { background: #d4f0f1; }
-
-    .error-box {
-      background: #fce8e8; color: #a32d2d;
-      border-radius: 8px; padding: 1rem;
-      font-size: 13px; line-height: 1.6; margin-top: 1rem;
-    }
-
-    .spinner {
-      display: inline-block; width: 14px; height: 14px;
-      border: 2px solid #fff; border-top-color: transparent;
-      border-radius: 50%; animation: spin 0.7s linear infinite;
-      vertical-align: middle; margin-right: 6px;
-    }
+    .error-box { background: #fce8e8; color: #a32d2d; border-radius: 8px; padding: 1rem; font-size: 13px; line-height: 1.6; margin-top: 1rem; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .footer {
-      text-align: center; margin-top: 2rem;
-      font-size: 12px; color: #2AABB0; font-weight: 500;
-    }
+    .footer { text-align: center; margin-top: 2rem; font-size: 12px; color: #2AABB0; font-weight: 500; }
+    .source-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: #2AABB0; font-weight: 600; background: #d4f0f1; padding: 3px 10px; border-radius: 6px; margin-bottom: 10px; }
   </style>
 </head>
 <body>
@@ -178,7 +68,6 @@
       <h1>Gerador de Abordagem Comercial</h1>
       <p>Informe o contexto do prospect — eu escolho a solução ideal e monto a abordagem.</p>
     </div>
-
     <div class="acesso-box">
       <h2>Seu e-mail de acesso</h2>
       <p>Digite o e-mail cadastrado para usar a ferramenta.</p>
@@ -186,7 +75,6 @@
         <input type="email" id="email" placeholder="seu@email.com" />
       </div>
     </div>
-
     <div class="catalog-preview">
       <div class="catalog-preview-title">Portfólio carregado · SDR de Sucesso</div>
       <div class="catalog-tags">
@@ -199,29 +87,29 @@
         <span class="ctag">Arquitetura de Outbound</span>
       </div>
     </div>
-
     <div class="card">
       <div class="section-title">Contexto do prospect</div>
-
       <div class="field">
-        <label>Tipo de análise</label>
-        <select id="tipo">
-          <option value="vaga">Texto / link de vaga no LinkedIn</option>
-          <option value="empresa">Página da empresa</option>
-          <option value="livre">Contexto livre</option>
-        </select>
+        <label>Como você vai informar o contexto do prospect?</label>
+        <div class="source-tabs">
+          <button class="tab-btn active" id="tab-url" onclick="setTab('url')">Link do site</button>
+          <button class="tab-btn" id="tab-texto" onclick="setTab('texto')">Colar texto</button>
+          <button class="tab-btn" id="tab-ambos" onclick="setTab('ambos')">Ambos</button>
+        </div>
       </div>
-
-      <div class="field">
+      <div id="campo-url" class="field">
+        <label>URL do site ou página da empresa</label>
+        <input type="url" id="url" placeholder="https://www.empresa.com.br" />
+        <p class="field-note">A ferramenta vai ler o site automaticamente e usar o conteúdo para personalizar a abordagem.</p>
+      </div>
+      <div id="campo-texto" class="field" style="display:none;">
         <label>Cole aqui o conteúdo da vaga ou da página da empresa</label>
-        <textarea id="conteudo" style="min-height:110px;" placeholder="Cole o texto aqui..."></textarea>
+        <textarea id="conteudo" style="min-height:100px;" placeholder="Cole o texto aqui..."></textarea>
       </div>
-
       <div class="field">
         <label>Persona que você vai abordar</label>
         <input type="text" id="persona" placeholder="Ex: Head de Vendas em empresa SaaS B2B com 50-200 funcionários" />
       </div>
-
       <div class="row">
         <div class="field">
           <label>Canal de abordagem</label>
@@ -242,66 +130,64 @@
           </select>
         </div>
       </div>
-
       <div class="section-title">Contexto adicional</div>
-
       <div class="field">
-        <textarea id="contexto" style="min-height:80px;" placeholder="Ex: já temos um cliente no mesmo segmento, o SDR é júnior, empresa em expansão recente..."></textarea>
+        <textarea id="contexto" style="min-height:70px;" placeholder="Ex: já temos um cliente no mesmo segmento, o SDR é júnior, empresa em expansão recente..."></textarea>
       </div>
-
-      <button class="btn-gerar" id="btn" onclick="gerar()">
-        Gerar abordagem + indicação de produto →
-      </button>
+      <button class="btn-gerar" id="btn" onclick="gerar()">Gerar abordagem + indicação de produto →</button>
     </div>
-
     <div id="result"></div>
-
     <div class="footer">SDR de Sucesso · sdrdesucesso.com</div>
   </div>
-
   <script>
+    let tabAtual = 'url';
+    function setTab(tab) {
+      tabAtual = tab;
+      document.getElementById('tab-url').classList.toggle('active', tab === 'url' || tab === 'ambos');
+      document.getElementById('tab-texto').classList.toggle('active', tab === 'texto' || tab === 'ambos');
+      document.getElementById('tab-ambos').classList.toggle('active', tab === 'ambos');
+      document.getElementById('campo-url').style.display = (tab === 'url' || tab === 'ambos') ? 'block' : 'none';
+      document.getElementById('campo-texto').style.display = (tab === 'texto' || tab === 'ambos') ? 'block' : 'none';
+    }
     async function gerar() {
       const email = document.getElementById('email').value.trim();
+      const url = document.getElementById('url').value.trim();
       const conteudo = document.getElementById('conteudo').value.trim();
       const persona = document.getElementById('persona').value.trim();
       const canal = document.getElementById('canal').value;
       const objetivo = document.getElementById('objetivo').value;
       const contexto = document.getElementById('contexto').value.trim();
-      const tipo = document.getElementById('tipo').value;
-
       if (!email) { alert('Digite seu e-mail de acesso.'); return; }
-      if (!conteudo || !persona) { alert('Preencha ao menos o conteúdo da vaga/empresa e a persona.'); return; }
-
+      if (!persona) { alert('Informe a persona que você vai abordar.'); return; }
+      if (!url && !conteudo) { alert('Informe o link do site ou cole o conteúdo do prospect.'); return; }
+      if ((tabAtual === 'url' || tabAtual === 'ambos') && url && !url.startsWith('http')) { alert('A URL precisa começar com http:// ou https://'); return; }
       const btn = document.getElementById('btn');
       btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>Analisando e gerando...';
+      btn.innerHTML = url ? '<span class="spinner"></span>Lendo o site e gerando abordagem...' : '<span class="spinner"></span>Analisando e gerando...';
       document.getElementById('result').innerHTML = '';
-
       try {
         const res = await fetch('/api/gerar', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, conteudo, persona, canal, objetivo, tipo, contexto })
+          body: JSON.stringify({ email, url, conteudo, persona, canal, objetivo, contexto })
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Erro desconhecido');
-        renderResult(data);
+        renderResult(data, !!url);
       } catch (e) {
-        document.getElementById('result').innerHTML =
-          `<div class="error-box"><strong>Erro.</strong><br>${e.message}</div>`;
+        document.getElementById('result').innerHTML = `<div class="error-box"><strong>Erro.</strong><br>${e.message}</div>`;
       }
-
       btn.disabled = false;
       btn.innerHTML = 'Gerar abordagem + indicação de produto →';
     }
-
-    function renderResult(d) {
+    function renderResult(d, leuSite) {
       const score = Math.min(100, Math.max(0, Math.round(d.fit_score || 0)));
       const sinais = (d.sinais_de_compra || []).map(s => `<span class="tag tag-teal">${s}</span>`).join('');
       const dicas = (d.dicas_de_follow_up || []).map(s => `<span class="tag tag-lilac">${s}</span>`).join('');
-
+      const badge = leuSite ? `<div class="source-badge">🌐 Baseado na leitura do site do prospect</div>` : '';
       document.getElementById('result').innerHTML = `
         <div class="result-card">
+          ${badge}
           <div class="result-section">
             <div class="result-label">Solução indicada</div>
             <div class="product-badge">★ ${d.produto_indicado || '—'}</div>
@@ -330,7 +216,6 @@
           </div>
         </div>`;
     }
-
     function copiar() {
       const txt = document.getElementById('msg-text')?.innerText;
       if (txt) navigator.clipboard.writeText(txt).catch(() => {});
